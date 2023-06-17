@@ -2,6 +2,6 @@
 {
     public interface IRiddleRepository
     {
-        IQueryable<Riddle> Products { get; }
+        IQueryable<Riddle> Riddles { get; }
     }
 }
