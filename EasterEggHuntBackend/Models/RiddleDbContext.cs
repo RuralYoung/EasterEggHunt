@@ -7,6 +7,6 @@ namespace EasterEggHuntBackend.Models
         public RiddleDbContext( DbContextOptions<RiddleDbContext> options )
             : base( options) { }
 
-        public DbSet<Riddle> Ridles => Set<Riddle>();
+        public DbSet<Riddle> Riddles => Set<Riddle>();
     }
 }
