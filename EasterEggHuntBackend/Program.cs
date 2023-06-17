@@ -3,7 +3,6 @@ using EasterEggHuntBackend.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
 builder.Services.AddDbContext<RiddleDbContext>(opts =>
 {
     opts.UseSqlServer(
@@ -12,7 +11,12 @@ builder.Services.AddDbContext<RiddleDbContext>(opts =>
 
 builder.Services.AddScoped<IRiddleRepository, EFRiddleRepository>();
 
+// Defines the services that are required by the MVC framework
+builder.Services.AddControllers();
+
 var app = builder.Build();
+
+app.MapControllers();
 
 app.MapGet("/", () => "Hello World!");
 
