@@ -1,6 +1,6 @@
 ﻿namespace EasterEggHuntBackend.Models
 {
-    public class Riddles
+    public class Riddle
     {
         public int Id { get; set; }
         public string Question { get; set; }
