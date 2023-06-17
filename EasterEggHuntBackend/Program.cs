@@ -10,6 +10,8 @@ builder.Services.AddDbContext<RiddleDbContext>(opts =>
         builder.Configuration["ConnectionStrings:EasterEggHuntBackendConnection"]);
 });
 
+builder.Services.AddScoped<IRiddleRepository, EFRiddleRepository>();
+
 var app = builder.Build();
 
 app.MapGet("/", () => "Hello World!");
