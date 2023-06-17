@@ -18,4 +18,6 @@ app.MapGet("/", () => "Hello World!");
 
 app.UseStaticFiles();
 
+SeedData.EnsurePopulated(app);
+
 app.Run();
