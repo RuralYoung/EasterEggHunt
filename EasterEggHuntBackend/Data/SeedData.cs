@@ -21,19 +21,22 @@ namespace EasterEggHuntBackend.Data
                     {
                         Question = "Who played the famous character Dr. Peter Venkman",
                         Answer = "Billy Murray",
-                        Hint = "Ghostbusters"
+                        Hint = "Ghostbusters",
+                        ProgressCode = "06081984"
                     },
                     new Riddle
                     {
                         Question = "After the death of lead singer Bon Scott, what album did AC/DC release first?",
                         Answer = "Back in Black",
-                        Hint = "This was album had a song of the same name which signified their bold new return under a new singer."
+                        Hint = "This was album had a song of the same name which signified their bold new return under a new singer.",
+                        ProgressCode = "07251980"
                     },
                     new Riddle
                     {
                         Question = "How many shapes are used in the game \"Tetris\"?",
                         Answer = "Seven",
-                        Hint = "Mirrored pieces are counted as two seperate pieces."
+                        Hint = "Mirrored pieces are counted as two seperate pieces.",
+                        ProgressCode = "06061984"
                     }
                 );
 

@@ -37,8 +37,9 @@ namespace EasterEggHuntBackend.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ProgressCode")
-                        .HasColumnType("int");
+                    b.Property<string>("ProgressCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Question")
                         .IsRequired()

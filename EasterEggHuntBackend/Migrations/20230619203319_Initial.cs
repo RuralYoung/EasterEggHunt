@@ -17,7 +17,7 @@ namespace EasterEggHuntBackend.Migrations
                     Question = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Answer = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Hint = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ProgressCode = table.Column<int>(type: "int", nullable: false)
+                    ProgressCode = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {

@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EasterEggHuntBackend.Migrations
 {
     [DbContext(typeof(RiddleDbContext))]
-    [Migration("20230619202642_Initial")]
+    [Migration("20230619203319_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -39,8 +39,9 @@ namespace EasterEggHuntBackend.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ProgressCode")
-                        .HasColumnType("int");
+                    b.Property<string>("ProgressCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Question")
                         .IsRequired()
