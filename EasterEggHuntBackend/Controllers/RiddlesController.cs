@@ -18,5 +18,13 @@ namespace EasterEggHuntBackend.Controllers
         {
             return repository.Riddles.AsEnumerable<Riddle>();
         }
+
+        [HttpGet("{id}")]
+        public Riddle? GetRiddles(int id)
+        {
+            {
+                return repository.Riddles.Where(r =>r.Id == id).FirstOrDefault();
+            }
+        }
     }
 }
