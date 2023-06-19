@@ -23,6 +23,8 @@ namespace EasterEggHuntBackend.Models
                         Hint = "Murray Hill"
                     }
                 );
+
+                context.SaveChanges();
             }
         }
     }
