@@ -1,7 +1,7 @@
 ﻿using EasterEggHuntBackend.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace EasterEggHuntBackend.DbContext
+namespace EasterEggHuntBackend
 {
     public class RiddleDbContext : DbContext
     {

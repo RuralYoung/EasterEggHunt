@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using EasterEggHuntBackend.Models;
-using EasterEggHuntBackend.DbContext;
 
 namespace EasterEggHuntBackend.Controllers
 {

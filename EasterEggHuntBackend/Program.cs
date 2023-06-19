@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
-using EasterEggHuntBackend.DbContext;
 using EasterEggHuntBackend.Data;
+using EasterEggHuntBackend;
 
 var builder = WebApplication.CreateBuilder(args);
 

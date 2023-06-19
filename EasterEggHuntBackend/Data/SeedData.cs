@@ -1,5 +1,4 @@
-﻿using EasterEggHuntBackend.DbContext;
-using EasterEggHuntBackend.Models;
+﻿using EasterEggHuntBackend.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace EasterEggHuntBackend.Data
