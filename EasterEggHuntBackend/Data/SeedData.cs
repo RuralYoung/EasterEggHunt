@@ -1,6 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using EasterEggHuntBackend.DbContext;
+using EasterEggHuntBackend.Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace EasterEggHuntBackend.Models
+namespace EasterEggHuntBackend.Data
 {
     public static class SeedData
     {

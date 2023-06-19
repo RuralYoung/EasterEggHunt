@@ -1,29 +1,30 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using EasterEggHuntBackend.Models;
+using EasterEggHuntBackend.DbContext;
 
 namespace EasterEggHuntBackend.Controllers
 {
     [Route("api/[controller]")]
     public class RiddlesController : Controller
     {
-        private IRiddleRepository repository;
+        private readonly RiddleDbContext _context;
 
-        public RiddlesController(IRiddleRepository repo)
+        public RiddlesController(RiddleDbContext ctx)
         {
-            repository = repo;
+            _context = ctx;
         }
 
         [HttpGet]
         public IEnumerable<Riddle> GetRiddles()
         {
-            return repository.Riddles.AsEnumerable<Riddle>();
+            return _context.Riddles.AsEnumerable<Riddle>();
         }
 
         [HttpGet("{id}")]
         public Riddle? GetRiddles(int id)
         {
             {
-                return repository.Riddles.Where(r =>r.Id == id).FirstOrDefault();
+                return _context.Riddles.Where(r => r.Id == id).FirstOrDefault();
             }
         }
     }
