@@ -19,11 +19,11 @@ namespace EasterEggHuntBackend.Controllers
             return _context.Riddles.AsEnumerable<Riddle>();
         }
 
-        [HttpGet("{id}")]
-        public Riddle? GetRiddles(int id)
+        [HttpGet("{ProgressCode}")]
+        public Riddle? GetRiddles(string ProgressCode)
         {
             {
-                return _context.Riddles.Where(r => r.Id == id).FirstOrDefault();
+                return _context.Riddles.Where(r => r.ProgressCode == ProgressCode).FirstOrDefault();
             }
         }
     }
