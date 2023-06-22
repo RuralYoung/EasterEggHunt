@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { GetRiddlesService } from './get-riddles.service';
+import { RiddlesService } from './riddles.service';
 
 describe('GetRiddlesService', () => {
-  let service: GetRiddlesService;
+  let service: RiddlesService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(GetRiddlesService);
+    service = TestBed.inject(RiddlesService);
   });
 
   it('should be created', () => {
