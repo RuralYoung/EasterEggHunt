@@ -1,5 +1,6 @@
 <div class="riddles-display">
-    <a *ngFor="let riddle of riddles">
-        <div>{{riddle.question}}</div>
-    </a>
+    <h2>
+        {{currentRiddle}}
+    </h2>
+    <button (click)="nextButton()">Next Question</button>
 </div>
