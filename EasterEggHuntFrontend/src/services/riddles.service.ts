@@ -15,7 +15,6 @@ export class RiddlesService {
 
   // GET: Gets the riddles from the server
   getRiddles(): Observable<Riddle[]> {
-    console.log('GET: getRiddles() was called')
     return this.http.get<Riddle[]>(this.riddlesUrl)
   }
 }
