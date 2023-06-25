@@ -10,9 +10,8 @@ import { RiddlesService } from 'src/services/riddles.service';
 })
 export class HomeComponent implements OnInit {
   riddles: Riddle[] = [];
-
   index: number = 0;
-  currentRiddle: string = "ERROR COULD NOT CONNECT TO QUESTION DATABASE.";
+  currentRiddle: string = "";
 
   constructor( private riddleService: RiddlesService ) {}
 
@@ -22,9 +21,9 @@ export class HomeComponent implements OnInit {
 
   getRiddles(): void {
     this.riddleService.getRiddles()
-      .subscribe( riddles => this.riddles = riddles);
-    
-    this.currentRiddle = this.riddles[0]?.question;
+      .subscribe( serverRiddles => this.riddles = serverRiddles, 
+                  () => this.currentRiddle = "ERROR COULD NOT CONNECT TO QUESTION DATABASE", 
+                  () => this.currentRiddle = this.riddles[0].question);
   }
 
   nextButton(): void {
