@@ -2,5 +2,8 @@
     <h2>
         {{currentRiddle}}
     </h2>
-    <button (click)="nextButton()">Next Question</button>
+
+    <label for="user-answer">Submit your answer! </label>
+    <input id="user-answer" #userAnswer />
+    <button type="button" (click)="submitAnswer(userAnswer.value); userAnswer.value=''">Next Question</button>
 </div>

@@ -26,7 +26,11 @@ export class HomeComponent implements OnInit {
                   () => this.currentRiddle = this.riddles[0].question);
   }
 
-  nextButton(): void {
+  submitAnswer( userAnswer: string ): void {
+    console.log(userAnswer);
+  }
+
+  /*nextButton(): void {
     if ( this.index < this.riddles.length )
     {
       this.currentRiddle = this.riddles[this.index++]?.question;
@@ -35,5 +39,5 @@ export class HomeComponent implements OnInit {
       this.index = 0;
       this.currentRiddle = this.riddles[this.index++]?.question;
     }
-  }
+  }*/
 }
