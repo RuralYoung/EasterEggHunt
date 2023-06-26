@@ -9,4 +9,10 @@
         <button type="button" (click)="displayHint();">Show Hint</button>
     </div>
     <div *ngIf="correctStatusVisibility"> <strong>{{correctStatusMessage}}</strong> </div>
+
+    <label for="user-answer">Input a Progress Code!</label>
+    <input id="user-Progress-code" #userProgCodeInput />
+    <div>
+        <button type="button" (click)="submitProgCode(userProgCodeInput.value); userProgCodeInput.value=''">Submit</button>
+    </div>
 </div>

@@ -46,6 +46,10 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  submitProgCode( userProgCode: string ): void {
+    console.log(userProgCode);
+  }
+
   displayResponseMessage(respMsg: string): void {
     this.correctStatusMessage = respMsg;
     this.correctStatusVisibility = true;
