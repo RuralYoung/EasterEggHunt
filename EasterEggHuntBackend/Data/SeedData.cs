@@ -20,7 +20,7 @@ namespace EasterEggHuntBackend.Data
                     new Riddle
                     {
                         Question = "Who played the famous character Dr. Peter Venkman",
-                        Answer = "Billy Murray",
+                        Answer = "Bill Murray",
                         Hint = "Ghostbusters",
                         ProgressCode = "06081984"
                     },
@@ -34,7 +34,7 @@ namespace EasterEggHuntBackend.Data
                     new Riddle
                     {
                         Question = "How many shapes are used in the game \"Tetris\"?",
-                        Answer = "Seven",
+                        Answer = "7",
                         Hint = "Mirrored pieces are counted as two seperate pieces.",
                         ProgressCode = "06061984"
                     }
