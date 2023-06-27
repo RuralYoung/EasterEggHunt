@@ -9,15 +9,23 @@ import { RiddlesService } from 'src/services/riddles.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  riddles: Riddle[] = [];
-  index: number = 0;
-  currentRiddle: string = "";
-  currentHint: string = "";
-  correctStatusMessage: string = "";
-  correctStatusVisibility: boolean = false;
-  hintVisibility: boolean = false;
+  private _riddles: Riddle[] = [];
+  private _index: number = 0;
 
-  constructor( private riddleService: RiddlesService ) {}
+  protected correctStatusMessage: string = "";
+  protected correctStatusVisibility: boolean = false;
+  protected hintVisibility: boolean = false;
+  protected currentRiddle: Riddle = {
+    id: -1,
+    question: "",
+    answer: "",
+    hint: "",
+    progressCode: "",
+  };
+  
+
+  constructor( private riddleService: RiddlesService ) {
+  }
 
   ngOnInit(): void {
     this.getRiddles();
@@ -25,18 +33,18 @@ export class HomeComponent implements OnInit {
 
   getRiddles(): void {
     this.riddleService.getRiddles()
-      .subscribe( serverRiddles => this.riddles = serverRiddles, 
-                  () => this.currentRiddle = "ERROR COULD NOT CONNECT TO QUESTION DATABASE", // Error case
-                  () => this.currentRiddle = this.riddles[0].question ); // When subscribe is done
+      .subscribe( serverRiddles => this._riddles = serverRiddles, 
+                  () => this.currentRiddle.question = "ERROR COULD NOT CONNECT TO QUESTION DATABASE", // Error case
+                  () => this.currentRiddle = this._riddles[0] ); // When subscribe is done
   }
 
   submitAnswer( userAnswer: string ): void {
-    if ( this.riddles[this.index].answer.toLowerCase() == userAnswer.toLowerCase() ) {
+    if ( this.currentRiddle.answer.toLowerCase() == userAnswer.toLowerCase() ) {
       this.displayResponseMessage("Correct!");
       this.hintVisibility = false;
       
       // This is temporary, when you win, you should go to a win screen.
-      ++this.index < this.riddles.length ? this.currentRiddle = this.riddles[this.index].question : this.currentRiddle = "You Win!";
+      ++this._index < this._riddles.length ? this.currentRiddle = this._riddles[this._index] : this.currentRiddle.question = "You Win!";
     }
     else
     {
@@ -47,11 +55,10 @@ export class HomeComponent implements OnInit {
   }
 
   submitProgCode( userProgCode: string ): void {
-    for ( var i in this.riddles ) {
-      if ( this.riddles[i].progressCode == userProgCode ) {
-        this.currentRiddle = this.riddles[i].question;
-        this.currentHint = this.riddles[i].hint
-        this.index = parseInt(i);
+    for ( var i in this._riddles ) {
+      if ( this._riddles[i].progressCode == userProgCode ) {
+        this.currentRiddle = this._riddles[i];
+        this._index = parseInt(i);
         
         this.displayResponseMessage("Successfully found question!");
         return;
@@ -70,7 +77,6 @@ export class HomeComponent implements OnInit {
   }
 
   displayHint(): void {
-    this.currentHint = this.riddles[this.index].hint;
     this.hintVisibility = true;
   }
 }

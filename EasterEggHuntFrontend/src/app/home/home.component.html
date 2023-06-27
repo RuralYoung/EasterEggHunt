@@ -1,11 +1,11 @@
 <div class="riddles-display">
-    <h2> {{currentRiddle}} </h2>
-    <h3 *ngIf="hintVisibility"> Hint: {{currentHint}} </h3>
+    <h2> {{currentRiddle.question}} </h2>
+    <h3 *ngIf="hintVisibility"> Hint: {{currentRiddle.hint}} </h3>
 
     <label for="user-answer">Submit your answer! </label>
     <input id="user-answer" #userAnswer />
     <div>
-        <button type="button" (click)="submitAnswer(userAnswer.value); userAnswer.value=''">Next Question</button>
+        <button type="button" (click)="submitAnswer(userAnswer.value); userAnswer.value=''">Submit Answer</button>
         <button type="button" (click)="displayHint();">Show Hint</button>
     </div>
     <div *ngIf="correctStatusVisibility"> <strong>{{correctStatusMessage}}</strong> </div>
