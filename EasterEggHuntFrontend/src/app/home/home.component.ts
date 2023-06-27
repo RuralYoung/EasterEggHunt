@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
     this.riddleService.getRiddles()
       .subscribe( serverRiddles => this.riddles = serverRiddles, 
                   () => this.currentRiddle = "ERROR COULD NOT CONNECT TO QUESTION DATABASE", // Error case
-                  () => this.currentRiddle = this.riddles[0].question); // When subscribe is done
+                  () => this.currentRiddle = this.riddles[0].question ); // When subscribe is done
   }
 
   submitAnswer( userAnswer: string ): void {
@@ -40,14 +40,25 @@ export class HomeComponent implements OnInit {
     }
     else
     {
-      if (this.correctStatusVisibility)
+      if ( this.correctStatusVisibility )
         return;
       this.displayResponseMessage("Incorrect!");
     }
   }
 
   submitProgCode( userProgCode: string ): void {
-    console.log(userProgCode);
+    for ( var i in this.riddles ) {
+      if ( this.riddles[i].progressCode == userProgCode ) {
+        this.currentRiddle = this.riddles[i].question;
+        this.currentHint = this.riddles[i].hint
+        this.index = parseInt(i);
+        
+        this.displayResponseMessage("Successfully found question!");
+        return;
+      }
+    }
+
+    this.displayResponseMessage("Invalid Progress Code!")
   }
 
   displayResponseMessage(respMsg: string): void {
