@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router'
 
 import { Riddle } from 'src/data/riddle';
 import { RiddlesService } from 'src/services/riddles.service';
@@ -24,15 +25,14 @@ export class HomeComponent implements OnInit {
   };
   
 
-  constructor( private riddleService: RiddlesService ) {
-  }
+  constructor( private _riddleService: RiddlesService, private _router: Router ) {}
 
   ngOnInit(): void {
     this.getRiddles();
   }
 
   getRiddles(): void {
-    this.riddleService.getRiddles()
+    this._riddleService.getRiddles()
       .subscribe( serverRiddles => this._riddles = serverRiddles, 
                   () => this.currentRiddle.question = "ERROR COULD NOT CONNECT TO QUESTION DATABASE", // Error case
                   () => this.currentRiddle = this._riddles[0] ); // When subscribe is done
@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit {
       this.hintVisibility = false;
       
       // This is temporary, when you win, you should go to a win screen.
-      ++this._index < this._riddles.length ? this.currentRiddle = this._riddles[this._index] : this.currentRiddle.question = "You Win!";
+      ++this._index < this._riddles.length ? this.currentRiddle = this._riddles[this._index] : this._router.navigate(['winnerwinnerchickendinner']);
     }
     else
     {
