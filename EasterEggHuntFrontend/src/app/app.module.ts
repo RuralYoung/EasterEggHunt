@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { WinScreenComponent } from './win-screen/win-screen.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    WinScreenComponent
   ],
   imports: [
     BrowserModule,
