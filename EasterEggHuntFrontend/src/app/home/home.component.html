@@ -1,18 +1,22 @@
 <div class="riddles-display">
-    <h2> {{currentRiddle.question}} </h2>
-    <h3 *ngIf="hintVisibility"> Hint: {{currentRiddle.hint}} </h3>
+    <div class="user-answer">
+        <h2> {{currentRiddle.question}} </h2>
+        <h3 *ngIf="hintVisibility"> Hint: {{currentRiddle.hint}} </h3>
 
-    <label for="user-answer">Submit your answer! </label>
-    <input id="user-answer" #userAnswer />
-    <div>
+        <label for="user-answer">Submit your answer! </label>
+        <input id="user-answer" #userAnswer />
+        
         <button type="button" (click)="submitAnswer(userAnswer.value); userAnswer.value=''">Submit Answer</button>
         <button type="button" (click)="displayHint();">Show Hint</button>
     </div>
-    <div *ngIf="correctStatusVisibility"> <strong>{{correctStatusMessage}}</strong> </div>
 
-    <label for="user-answer">Input a Progress Code!</label>
-    <input id="user-Progress-code" #userProgCodeInput />
-    <div>
+    <div class="correct-status-message" *ngIf="correctStatusVisibility"> <strong>{{correctStatusMessage}}</strong> </div>
+
+    <div class="progress-code">
+        <label for="user-answer">Input a Progress Code! </label>
+        <input id="user-Progress-code" #userProgCodeInput />
         <button type="button" (click)="submitProgCode(userProgCodeInput.value); userProgCodeInput.value=''">Submit</button>
+        
+        <div>Current Riddle's Progress Code: {{currentRiddle.progressCode}}</div>
     </div>
 </div>
