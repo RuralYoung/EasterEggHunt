@@ -1,6 +1,7 @@
-h1 {
+.win-screen {
     position: fixed;
     top: 25%;
     left: 50%;
+    text-align: center;
     transform: translate(-50%, -50%);
 }
