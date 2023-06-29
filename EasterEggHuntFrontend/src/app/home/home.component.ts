@@ -59,6 +59,7 @@ export class HomeComponent implements OnInit {
       if ( this._riddles[i].progressCode == userProgCode ) {
         this.currentRiddle = this._riddles[i];
         this._index = parseInt(i);
+        this.hintVisibility = false;
         
         this.displayResponseMessage("Successfully found question!");
         return;
