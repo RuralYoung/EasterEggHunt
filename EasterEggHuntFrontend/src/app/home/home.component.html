@@ -1,8 +1,8 @@
 <div class="riddles-display">
     <div class="progress-code">
         <label for="user-answer">Input a Progress Code: </label>
-        <input id="user-Progress-code" #userProgCodeInput />
-        <button type="button" (click)="submitProgCode(userProgCodeInput.value); userProgCodeInput.value=''">Submit</button>
+        <input type="text" id="user-Progress-code" #userProgCodeInput />
+        <button class="btn btn-default btn-ghost" type="button" (click)="submitProgCode(userProgCodeInput.value); userProgCodeInput.value=''">Submit</button>
         
         <div>Current Riddle's Progress Code: {{currentRiddle.progressCode}}</div>
     </div>
@@ -13,10 +13,10 @@
 
         <div class="correct-status-message" *ngIf="correctStatusVisibility"> <h3><strong>{{correctStatusMessage}}</strong></h3> </div>
 
-        <input id="user-answer" #userAnswer />
+        <input type="text" id="user-answer" #userAnswer />
         <div>
-            <button type="button" (click)="submitAnswer(userAnswer.value); userAnswer.value=''">Submit Answer</button>
-            <button type="button" (click)="displayHint();">Show Hint</button>
+            <button class="btn btn-default btn-ghost" type="button" (click)="submitAnswer(userAnswer.value); userAnswer.value=''">Submit Answer</button>
+            <button class="btn btn-default btn-ghost" type="button" (click)="displayHint();">Show Hint</button>
         </div>
     </div>
 </div>

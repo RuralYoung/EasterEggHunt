@@ -4,6 +4,14 @@
     text-align: center;
 }
 
+.progress-code input {
+    width: 70%;
+}
+
+.progress-code button {
+    height: 38px;
+}
+
 .user-answer {
     position: fixed;
     top: 25%;
